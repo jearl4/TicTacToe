@@ -62,7 +62,7 @@ public class TicTacToe {
 				System.out.println();
 				System.out.println("-------------");
 			}
-			System.out.println(" | " + (i + 1));
+			System.out.print(" | " + (i + 1));
 		}
 		System.out.println();
 	}
