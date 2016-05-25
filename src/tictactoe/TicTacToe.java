@@ -154,4 +154,29 @@ public class TicTacToe {
 	public boolean thirdCol() {
 		return board[2] == board[5] && board[5] == board[8];
 	}
+
+	/**
+	 * check if board is filled
+	 * 
+	 * @return true if no - are found on board
+	 */
+	public boolean isTheBoardFilled() {
+		for (int i = 0; i < board.length; i++) {
+			if (board[i] == '-') {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public String gameOver() {
+		boolean didSomeoneWin = isThereAWinner();
+		if (didSomeoneWin) {
+			return "We Have a winner! The winner is " + this.winner + "'s";
+		} else if (isTheBoardFilled()) {
+			return "Draw: Game Over";
+		} else {
+			return "not Over";
+		}
+	}
 }
