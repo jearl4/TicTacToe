@@ -72,7 +72,7 @@ public class TicTacToe {
 	public boolean isThereAWinner() {
 		boolean diagonalsAndMiddle = rightDi() || leftDi() || middleRow() || secondCol() && board[4] != '-';
 		boolean topAndFirst = topRow() || firstCol() && board[0] != '-';
-		boolean bottomAndThird = bottomRow() || thirdRow() && board[8] != '-';
+		boolean bottomAndThird = bottomRow() || thirdCol() && board[8] != '-';
 		if (diagonalsAndMiddle) {
 			this.winner = board[4];
 		} else if (topAndFirst) {
@@ -82,6 +82,76 @@ public class TicTacToe {
 		}
 		return diagonalsAndMiddle || topAndFirst || bottomAndThird;
 	}
-	
-	
+
+	/**
+	 * check if top row of board is same
+	 * 
+	 * @return true if top row of board matches
+	 */
+	public boolean topRow() {
+		return board[0] == board[1] && board[1] == board[2];
+	}
+
+	/**
+	 * check if middle row of board is same
+	 * 
+	 * @return true if row matches
+	 */
+	public boolean middleRow() {
+		return board[3] == board[4] && board[4] == board[5];
+	}
+
+	/**
+	 * check if bottom row of board is same
+	 * 
+	 * @return true if bottom row matches
+	 */
+	public boolean bottomRow() {
+		return board[6] == board[7] && board[7] == board[8];
+	}
+
+	/**
+	 * check if right diagonal matches
+	 * 
+	 * @return true if diagonal matches
+	 */
+	public boolean rightDi() {
+		return board[2] == board[4] && board[4] == board[6];
+	}
+
+	/**
+	 * check if left diagonal matches
+	 * 
+	 * @return true if left diagonal matches
+	 */
+	public boolean leftDi() {
+		return board[0] == board[4] && board[4] == board[8];
+	}
+
+	/**
+	 * check if far left column matches
+	 * 
+	 * @return true if match
+	 */
+	public boolean firstCol() {
+		return board[0] == board[3] && board[3] == board[6];
+	}
+
+	/**
+	 * check if middle column matches
+	 * 
+	 * @return true if match
+	 */
+	public boolean secondCol() {
+		return board[1] == board[4] && board[4] == board[7];
+	}
+
+	/**
+	 * check if right column matches
+	 * 
+	 * @return true if match
+	 */
+	public boolean thirdCol() {
+		return board[2] == board[5] && board[5] == board[8];
+	}
 }
