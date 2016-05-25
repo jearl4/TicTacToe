@@ -13,6 +13,7 @@ public class TicTacToe {
 		this.aiMarker = aiMarker;
 		this.winner = '-';
 		this.board = setBoard();
+		this.currentMarker = userMarker;
 	}
 
 	public static char[] setBoard() {
@@ -54,9 +55,9 @@ public class TicTacToe {
 		System.out.println();
 	}
 
-	public void printIndexBoard() {
+	public static void printIndexBoard() {
 		System.out.println();
-		for (int i = 0; i < board.length; i++) {
+		for (int i = 0; i < 9; i++) {
 			if (i % 3 == 0 && i != 0) {
 				System.out.println();
 				System.out.println("-------------");
@@ -70,9 +71,9 @@ public class TicTacToe {
 	 * @return true if winner
 	 */
 	public boolean isThereAWinner() {
-		boolean diagonalsAndMiddle = rightDi() || leftDi() || middleRow() || secondCol() && board[4] != '-';
-		boolean topAndFirst = topRow() || firstCol() && board[0] != '-';
-		boolean bottomAndThird = bottomRow() || thirdCol() && board[8] != '-';
+		boolean diagonalsAndMiddle = (rightDi() || leftDi() || middleRow() || secondCol()) && board[4] != '-';
+		boolean topAndFirst = (topRow() || firstCol()) && board[0] != '-';
+		boolean bottomAndThird = (bottomRow() || thirdCol()) && board[8] != '-';
 		if (diagonalsAndMiddle) {
 			this.winner = board[4];
 		} else if (topAndFirst) {
