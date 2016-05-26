@@ -14,7 +14,7 @@ public class TicTacToeApplication {
 					+ "\nBut first you must pick what character you want to be and which I will be");
 			System.out.println();
 
-			System.out.println("Eneter a single character that will represent you on the board");
+			System.out.println("Enter a single character that will represent you on the board");
 			char playerToken = in.next().charAt(0);
 
 			System.out.println("Enter a single character that will represent me");
@@ -36,7 +36,7 @@ public class TicTacToeApplication {
 					// user turn
 					System.out.println("It's your turn, enter spot number");
 					int spot = in.nextInt();
-					while (game.playTurn(spot)) {
+					while (!game.playTurn(spot)) {
 						System.out.println(
 								"Try again. " + spot + " is invalid. This spot is already taken or is out of range.");
 						spot = in.nextInt();
@@ -63,5 +63,6 @@ public class TicTacToeApplication {
 			System.out.println();
 			System.out.println();
 		}
+		in.close();
 	}
 }
